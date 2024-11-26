@@ -77,7 +77,7 @@ function checkAmount() {
   if (todoArray.length <= 5) {
     document.body.style.backgroundColor = "#025d02";
   } else if (todoArray.length <= 10) {
-    document.body.style.backgroundColor = "#ffff58";
+    document.body.style.backgroundColor = "#eed202";
   } else {
     document.body.style.backgroundColor = "#750101";
   }
