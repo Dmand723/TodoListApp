@@ -60,15 +60,28 @@ function displayTodo() {
   let htmlCode = "";
   todoArray.forEach((list, ind) => {
     htmlCode += `<div class='flex mb-4 items-center'>
-          <p class='w-full text-white font-bold'>${list}</p>
+          <p class='w-full font-bold'>${list}</p>
           <button onclick='edit(${ind})' class='flex-no-shrink p-2 ml-4 mr-2 rounded text-white text-grey bg-green-600'>Edit</button>
           <button onclick='deleteTodo(${ind})' class='flex-no-shrink p-2 ml-2 rounded text-white bg-red-500'>Delete</button>
        </div>`;
   });
   listBox.innerHTML = htmlCode;
-  console.log(localStorage);
+  document.querySelector(
+    "#tasksAmount"
+  ).innerText = ` Tasks:${todoArray.length}`;
+  checkAmount();
 }
-
+function checkAmount() {
+  console.log(todoArray.length);
+  //this function checks the amout of tasks you have todo and updates the backgound color to green yellow or red depending on how much you have
+  if (todoArray.length <= 5) {
+    document.body.style.backgroundColor = "#025d02";
+  } else if (todoArray.length <= 10) {
+    document.body.style.backgroundColor = "#ffff58";
+  } else {
+    document.body.style.backgroundColor = "#750101";
+  }
+}
 function deleteTodo(ind) {
   // call the todo and let it equal localstorage.getitem("todo")
   let todo = localStorage.getItem("todo");
